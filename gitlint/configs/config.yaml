@@ -313,3 +313,26 @@ coffeelint:
   - "--file={DEFAULT_CONFIGS}/coffeelint.json"
   filter: "{filename},(?P<line>{lines}),.*,(?P<severity>.+),(?:\\[stdin\\]:\\d+:(?P<column>\\d+): .*: )?(?P<message>.+)"
   installation: "npm install -g coffeelint"
+
+# R
+# Sample output:
+# jobs/analyze/SSLqueueing/Analyze_SSLres.r:159:2: style: Commented code should be removed.
+# ### "One per Batch" Throttling Approach ($n = 1$)
+#  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#  jobs/analyze/SSLqueueing/Analyze_SSLres.r:167:45: style: Put spaces around all infix operators.
+#           total_time_hours = round(total_time/60,1),
+#                                             ~^~
+lintr:
+  extensions:
+  - .R
+  - .r
+  command: R
+  arguments:
+  - "--slave"
+  - "--no-save"
+  - "--no-restore"
+  - "-e"
+  - "suppressPackageStartupMessages(library(lintr));lint(commandArgs(TRUE))"
+  - "--args"
+  filter: "^{filename}:(?P<line>{lines}):((?P<column>\\d+):)? (?P<severity>.+): (?P<message>.+)$"
+  installation: "Install package 'lintr' within R"
