@@ -1,7 +1,7 @@
 sudo add-apt-repository --yes ppa:kalakris/cmake
 sudo apt-get update -qq
 sudo apt-get remove rubygems ruby
-sudo apt-get install curl build-essential php-pear optipng pngcrush php5 checkstyle libjpeg-turbo-progs xsltproc cmake
+sudo apt-get install curl build-essential php-pear optipng pngcrush php5 checkstyle libjpeg-turbo-progs xsltproc cmake gfortran libreadline6 libreadline6-dev xorg-dev
 #sudo apt-get install nodejs-legacy in ubuntu 14
 
 # Install ruby
