@@ -53,9 +53,9 @@ unzip -q pmd-bin-*
 mv pmd-bin-5.1.3 pmd-bin
 
 # R
-wget "https://cran.r-project.org/src/base/R-3/R-3.3.1.tar.gz"
-tar -xf R-3.3.1.tar.gz
-cd R-3.3.1
+wget "https://cran.r-project.org/src/base/R-3/R-3.2.5.tar.gz"
+tar -xf R-3.2.5.tar.gz
+cd R-3.2.5
 ./configure
 make
 sudo make install
