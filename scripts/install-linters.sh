@@ -1,9 +1,7 @@
-sudo echo "deb http://cran.rstudio.com/bin/linux/ubuntu precise/" >> /etc/apt/sources.list
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
 sudo add-apt-repository --yes ppa:kalakris/cmake
 sudo apt-get update -qq
 sudo apt-get remove rubygems ruby
-sudo apt-get install curl build-essential php-pear optipng pngcrush php5 checkstyle libjpeg-turbo-progs xsltproc cmake r-base
+sudo apt-get install curl build-essential php-pear optipng pngcrush php5 checkstyle libjpeg-turbo-progs xsltproc cmake
 #sudo apt-get install nodejs-legacy in ubuntu 14
 
 # Install ruby
@@ -55,4 +53,10 @@ unzip -q pmd-bin-*
 mv pmd-bin-5.1.3 pmd-bin
 
 # R
+wget "https://cran.r-project.org/src/base/R-3/R-3.3.1.tar.gz"
+tar -xf R-3.3.1.tar.gz
+cd R
+./configure
+make
+sudo make install
 sudo R --no-save --no-restore -e 'install.packages(c("lintr"), repos="http://cran.us.r-project.org")'
